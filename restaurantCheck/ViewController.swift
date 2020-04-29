@@ -25,7 +25,10 @@ class ViewController: UIViewController {
  
      // 預設預約人數
      var realReservePeople = 0
-  
+ 
+     // 預設預約日期
+     var realReserveDate = ""
+ 
      // 日期挑選器
      var reserveTimePick = UIDatePicker()
     
