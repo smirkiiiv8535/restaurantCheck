@@ -25,10 +25,7 @@ class ViewController: UIViewController {
  
      // 預設預約人數
      var realReservePeople = 0
- 
-     // 預設預約日期
-     var realReserveDate = ""
- 
+  
      // 日期挑選器
      var reserveTimePick = UIDatePicker()
     
@@ -56,11 +53,13 @@ class ViewController: UIViewController {
     // 載入名字輸入框所輸入的名字
     @IBAction func changeName(_ sender: UITextField) {
         realName = sender.text!
+        print(realName)
     }
     
     // 載入電話輸入框所輸入的電話
     @IBAction func changePhoneNum(_ sender: UITextField) {
         realPhoneNum = sender.text!
+        print(realPhoneNum)
     }
     
     // 載入分類號碼
@@ -87,7 +86,7 @@ class ViewController: UIViewController {
     @IBAction func confirmAll(_ sender: UIButton) {
         
         if (genderIndex == 0){
-            if(realName == "Didi" && realPhoneNum == phoneNum1 && realReservePeople == 4 && realReserveDate == ("03/07/2020")){
+            if(realName == "Didi" && realPhoneNum == phoneNum1 && realReservePeople == 4 && reservedDate.text == "03/07/2020"){
                 successView.isHidden = false
                 successText.isHidden = false
                 failedView.isHidden = true
@@ -98,9 +97,10 @@ class ViewController: UIViewController {
                 successText.isHidden = true
                 failedView.isHidden = false
                 failedText.isHidden = false
+                print(realReserveDate)
             }
         }else if (genderIndex == 1) {
-             if(realName == "Naomi" && realPhoneNum == phoneNum2 && realReservePeople == 2 && realReserveDate == ("05/23/2020")){
+            if(realName == "Naomi" && realPhoneNum == phoneNum2 && realReservePeople == 2 && reservedDate.text == "05/23/2020"){
                      successView.isHidden = false
                      successText.isHidden = false
                      failedView.isHidden = true
@@ -133,7 +133,6 @@ class ViewController: UIViewController {
         reservedDate.inputView = reserveTimePick   // 同時也插入日期挑選器
         
         reserveTimePick.datePickerMode = .date   // 日期挑選器的格式
-        reservedDate.textAlignment = .center    //  將日期顯示在中間
         
     }
     
@@ -145,8 +144,7 @@ class ViewController: UIViewController {
         // from:  裡面裝的就是日期挑選器挑的日期
         
         reservedDate.text = pickDateFormat.string(from:reserveTimePick.date)
-        
-      print(reservedDate.text)
+//        print(reservedDate.text)
       self.view.endEditing(true)    // 點Done這個按鈕時 是否要結束編輯 ?  A: 是
         
     }
