@@ -26,9 +26,6 @@ class ViewController: UIViewController {
      // 預設預約人數
      var realReservePeople = 0
  
-     // 預設預約日期
-     var realReserveDate = ""
- 
      // 日期挑選器
      var reserveTimePick = UIDatePicker()
     
@@ -70,10 +67,6 @@ class ViewController: UIViewController {
         genderIndex = sender.selectedSegmentIndex
     }
     
-    // 載入日期
-    @IBAction func checkDate(_ sender: UITextField) {
-        realReserveDate = sender.text!
-    }
     
     // 載入計算人數的數字
     @IBAction func checkReserve(_ sender: UIStepper) {
@@ -100,7 +93,6 @@ class ViewController: UIViewController {
                 successText.isHidden = true
                 failedView.isHidden = false
                 failedText.isHidden = false
-                print(realReserveDate)
             }
         }else if (genderIndex == 1) {
             if(realName == "Naomi" && realPhoneNum == phoneNum2 && realReservePeople == 2 && reservedDate.text == "05/23/2020"){
